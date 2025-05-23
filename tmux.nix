@@ -8,6 +8,7 @@ in {
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
     nerd-fonts.symbols-only
+    fira-code-symbols
     weather-icons
 
     symbola

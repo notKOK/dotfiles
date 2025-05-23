@@ -16,7 +16,7 @@
   boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
-      boot.kernelParams = ["amd_pstate.enable=1" "amd_pstate=active"];
+  boot.kernelParams = ["amd_pstate.enable=1" "amd_pstate=active"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c70605f2-f326-40b3-8f91-aea0e263bf42";
