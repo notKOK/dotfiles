@@ -39,18 +39,18 @@ echo "NixOS Rebuilding..."
 ls
 pwd
 # Rebuild, output simplified errors, log trackebacks
-#sudo nixos-rebuild switch --option eval-cache false -I nixos-config=/home/danila/dotfiles/configuration.nix --flake .  &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
-sudo nixos-rebuild switch --option eval-cache false -I nixos-config=/home/danila/dotfiles/configuration.nix  &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+sudo nixos-rebuild switch --option eval-cache false -I nixos-config=/home/danila/dotfiles/configuration.nix --flake .  &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+#sudo nixos-rebuild switch --option eval-cache false -I nixos-config=/home/danila/dotfiles/configuration.nix  &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
 
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep current)
 
 ## Commit all changes witih the generation metadata
-#git commit -am "$current"
+git commit -am "$current"
 #
 ## Back to where you were
-#popd
+popd
 #
 ## Notify all OK!
-#notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
+notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available

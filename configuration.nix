@@ -1,14 +1,33 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./desktop.nix
+    ./tmux.nix
+  ];
+
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix = {
+    optimise.automatic = true;
+    # SLOW OPERATION. DISABLE TO SPEED UP BUILDS
+    settings.auto-optimise-store = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 10d";
+    };
+    extraOptions = ''
+      min-free = ${toString (10000 * 1024 * 1024)}
+      max-free = ${toString (10024 * 1024 * 1024)}
+    '';
+  };
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -43,37 +62,13 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-   #services.xserver.videoDrivers = [ "amdgpu" ];
-
-  # Enable the KDE Plasma Desktop Environment.
-  # services.displayManager.sddm.enable = true;
-
-  services.desktopManager.plasma6.enable = true;
-  #services.displayManager.sddm.wayland.enable = true;
-  programs.xwayland.enable = true;
-  services.displayManager.defaultSession = "plasmax11";
-  #services.displayManager.cosmic-greeter.enable = true;
-  #services.desktopManager.cosmic.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
-
-  # services.xserver.desktopManager.cinnamon.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
   hardware.graphics = {
-   enable = true;
-   enable32Bit = true;
+    enable = true;
+    enable32Bit = true;
   };
 
   environment.variables = {
-   ROC_ENABLE_PRE_VEGA = "1";
+    ROC_ENABLE_PRE_VEGA = "1";
   };
 
   # Enable CUPS to print document
@@ -101,10 +96,10 @@
   users.users.danila = {
     isNormalUser = true;
     description = "danila";
-    extraGroups = [ "networkmanager" "wheel" "danila" ];
+    extraGroups = ["networkmanager" "wheel" "danila"];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
   users.groups.danila = {};
@@ -118,7 +113,7 @@
   programs.steam.enable = true;
 
   # List packages installed in system profile. To search, run: $ nix search wget
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     telegram-desktop
     neovim
     enpass
@@ -127,7 +122,10 @@
     syncthing
     alejandra
     git
-
+    lazygit
+    libnotify
+    btop
+    htop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -156,5 +154,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
