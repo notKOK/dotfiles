@@ -1,0 +1,16 @@
+.config/nvim/bin
+config/nvim/bin
+*.key
+.config/discord
+config/discord
+*.log
+.env
+
+# Crash log files
+crash.log
+crash.*.log
+
+result
+.envrc
+.direnv
+
