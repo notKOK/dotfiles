@@ -22,6 +22,9 @@
   services.xserver.displayManager.gdm.wayland = true;
 
   # services.xserver.desktopManager.cinnamon.enable = true;
+  environment.systemPackages = with pkgs; [
+    alacritty
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {

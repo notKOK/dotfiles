@@ -377,7 +377,6 @@
           leapBackwardTo = "\\S";
         };
       };
-      vim-wakatime.enable = true;
       outline = {
         aerial-nvim = {
           enable = true;
