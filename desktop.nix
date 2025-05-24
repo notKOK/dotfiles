@@ -6,6 +6,7 @@
 }: {
   services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
+  services.desktopManager.cosmic.xwayland.enable = true;
 
   ## Enable the X11 windowing system.
   ## You can disable this if you're only using the Wayland session.
