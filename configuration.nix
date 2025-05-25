@@ -111,7 +111,6 @@
   programs.neovim.defaultEditor = true;
   programs.neovim.enable = true;
   programs.steam.enable = true;
-
   # List packages installed in system profile. To search, run: $ nix search wget
   environment.systemPackages = with pkgs; [
     telegram-desktop
@@ -131,6 +130,8 @@
     jetbrains.pycharm-professional
     jetbrains.goland
     jetbrains.datagrip
+    rocmPackages.rocm-smi
+    nvtopPackages.amd
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
