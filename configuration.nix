@@ -104,7 +104,10 @@
   };
   users.groups.danila = {};
 
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {});
+  };
   nixpkgs.config.allowUnfree = true;
 
   programs.neovim.defaultEditor = true;
