@@ -131,6 +131,8 @@
     jetbrains.datagrip
     rocmPackages.rocm-smi
     nvtopPackages.amd
+    chromium
+    opera
   ];
 
   programs.mtr.enable = true;
