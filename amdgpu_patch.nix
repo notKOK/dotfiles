@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  amdgpu-kernel-module = pkgs.callPackage ../packages/amdgpu-kernel-module.nix {
+  amdgpu-kernel-module = pkgs.callPackage ./packages/amdgpu-kernel-module.nix {
     # Make sure the module targets the same kernel as your system is using.
     kernel = config.boot.kernelPackages.kernel;
   };
