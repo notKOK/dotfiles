@@ -29,5 +29,12 @@
       "x-scheme-handler/unknown" = "firefox.desktop";
       "inode/directory" = "yazi.desktop";
     };
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
+    };
   };
 }
