@@ -11,6 +11,11 @@
 
     nvf.url = "github:notashelf/nvf";
 
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,6 +55,13 @@
             ];
           })
           ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.users.danila = import ./danila.nix;
+          }
           ({pkgs, ...}: {
             environment = {
               variables = {
