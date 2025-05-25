@@ -16,7 +16,7 @@
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.
     enable = true;
-    services.xserver.desktopManager.plasma5.enable = true;
+    desktopManager.plasma5.enable = true;
   };
 
   xdg = {
