@@ -4,9 +4,9 @@
   inputs,
   ...
 }: {
-  services.displayManager.cosmic-greeter.enable = true;
-  services.desktopManager.cosmic.enable = true;
-  services.desktopManager.cosmic.xwayland.enable = true;
+  #services.displayManager.cosmic-greeter.enable = true;
+  #services.desktopManager.cosmic.enable = true;
+  #services.desktopManager.cosmic.xwayland.enable = true;
 
   environment.systemPackages = with pkgs; [
     alacritty
@@ -16,6 +16,7 @@
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.
     enable = true;
+    services.xserver.desktopManager.plasma5.enable = true;
   };
 
   xdg = {
