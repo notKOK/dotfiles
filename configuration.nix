@@ -108,6 +108,10 @@
     enable = true;
     package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {});
   };
+  programs.obs-studio = {
+    enable = true;
+    enableVirtualCamera = true;
+  };
   nixpkgs.config.allowUnfree = true;
 
   programs.neovim.defaultEditor = true;
