@@ -24,5 +24,4 @@
       "inode/directory" = "yazi.desktop";
     };
   };
-
 }
