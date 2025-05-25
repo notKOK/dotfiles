@@ -105,7 +105,7 @@
   users.groups.danila = {};
 
   programs.firefox.enable = true;
-
+  boot.kernelPackages = pkgs.linuxPackages_6_14;
   nixpkgs.config.allowUnfree = true;
 
   programs.neovim.defaultEditor = true;
