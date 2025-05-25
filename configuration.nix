@@ -96,7 +96,7 @@
   users.users.danila = {
     isNormalUser = true;
     description = "danila";
-    extraGroups = ["networkmanager" "wheel" "danila"];
+    extraGroups = ["networkmanager" "wheel" "danila" "video" "tty"];
     packages = with pkgs; [
       kdePackages.kate
       #  thunderbird
