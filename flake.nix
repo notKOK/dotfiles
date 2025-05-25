@@ -27,6 +27,7 @@
     nixpkgs,
     nixpkgs_unstable,
     nvf,
+    home-manager,
     #sops-nix,
     ...
   }: let
