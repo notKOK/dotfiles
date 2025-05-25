@@ -126,6 +126,11 @@
     libnotify
     btop
     htop
+    jetbrains.webstorm
+    jetbrains.rust-rover
+    jetbrains.pycharm-professional
+    jetbrains.goland
+    jetbrains.datagrip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
