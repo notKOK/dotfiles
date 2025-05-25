@@ -135,10 +135,9 @@
 
   programs.mtr.enable = true;
   programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
+    enable = true;
+    enableSSHSupport = true;
   };
-
 
   boot.kernelPackages = pkgs.linuxPackages_6_13;
   system.stateVersion = "25.05"; # Did you read the comment?
