@@ -141,6 +141,8 @@
     nvtopPackages.amd
     chromium
     opera
+    mesa
+    vulkan-tools
   ];
 
   programs.mtr.enable = true;
