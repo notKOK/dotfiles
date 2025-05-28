@@ -17,7 +17,9 @@
   boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
-  boot.kernelParams = ["amd_pstate.enable=1" "amd_pstate=active"];
+  boot.kernelParams = ["amd_pstate.enable=1"];
+  powerManagement.cpuFreqGovernor = "performance";
+  xserver.videoDrivers = ["amdgpu"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c70605f2-f326-40b3-8f91-aea0e263bf42";
@@ -40,6 +42,7 @@
 
   #24.11
   hardware.graphics.extraPackages = with pkgs; [
+    rocmPackages.clr.icd
     amdvlk
   ];
   # For 32 bit applications
@@ -52,9 +55,10 @@
     enable32Bit = true;
   };
   #hardware.opengl.driSupport = true; # This is already enabled by default
-  hardware.opengl.driSupport32Bit = true; # For 32 bit applications
 
   # CPU FUCKERY
   hardware.cpu.amd.ryzen-smu.enable = true;
-  environment.systemPackages = [pkgs.ryzenadj];
+  environment.systemPackages = [pkgs.ryzenadj pkgs.lact];
+  systemd.packages = with pkgs; [lact];
+  systemd.services.lactd.wantedBy = ["multi-user.target"];
 }
