@@ -12,11 +12,7 @@
 # A rebuild script that commits on a successful build
 set -e
 
-# Edit your config
-#$EDITOR configuration.nix
-
 # cd to your config dir
-#pushd /home/dmitrii/shared/dotfiles/etc/nixos
 pushd /home/danila/dotfiles
 
 # Early return if no changes were detected (thanks @singiamtel!)
@@ -27,21 +23,22 @@ pushd /home/danila/dotfiles
 #fi
 
 # Autoformat your nix files
-alejandra . &>/dev/null \
-  || ( alejandra . ; echo "formatting failed!" && exit 1)
+alejandra . &>/dev/null ||
+  (
+    alejandra .
+    echo "formatting failed!" && exit 1
+  )
 
 # Shows your changes
 git diff -U0 '*.nix'
-
 
 echo "NixOS Rebuilding..."
 
 ls
 pwd
-# Rebuild, output simplified errors, log trackebacks
-sudo nixos-rebuild switch --option eval-cache false -I nixos-config=/home/danila/dotfiles/configuration.nix --flake .  &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
-#sudo nixos-rebuild switch --option eval-cache false -I nixos-config=/home/danila/dotfiles/configuration.nix  &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
 
+# Rebuild, output simplified errors, log trackebacks
+sudo nixos-rebuild switch --option eval-cache false -I nixos-config=/home/danila/dotfiles/configuration.nix --flake . &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep current)
