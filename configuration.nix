@@ -146,6 +146,6 @@
     enableSSHSupport = true;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_6_13;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   system.stateVersion = "25.05"; # Did you read the comment?
 }
