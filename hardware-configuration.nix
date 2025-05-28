@@ -22,7 +22,7 @@
     "video=card0-HDMI-A-1:1920x1080@60"
   ];
   powerManagement.cpuFreqGovernor = "performance";
-  xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = ["amdgpu"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c70605f2-f326-40b3-8f91-aea0e263bf42";
