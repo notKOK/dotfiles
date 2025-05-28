@@ -89,6 +89,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  programs.fish = {
+    enable = true;
+  };
   users.users.danila = {
     isNormalUser = true;
     description = "danila";
