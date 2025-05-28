@@ -93,6 +93,8 @@
     isNormalUser = true;
     description = "danila";
     extraGroups = ["networkmanager" "wheel" "danila" "video" "tty"];
+    shell = pkgs.fish;
+
     packages = with pkgs; [
       kdePackages.kate
       #  thunderbird
