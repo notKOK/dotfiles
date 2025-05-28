@@ -12,6 +12,7 @@
     ./desktop.nix
     ./fonts.nix
     ./tmux.nix
+    ./rusty.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -89,14 +90,10 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  programs.fish = {
-    enable = true;
-  };
   users.users.danila = {
     isNormalUser = true;
     description = "danila";
     extraGroups = ["networkmanager" "wheel" "danila" "video" "tty"];
-    shell = pkgs.fish;
 
     packages = with pkgs; [
       kdePackages.kate
