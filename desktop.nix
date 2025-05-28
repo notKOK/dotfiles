@@ -4,10 +4,6 @@
   inputs,
   ...
 }: {
-  #services.displayManager.cosmic-greeter.enable = true;
-  #services.desktopManager.cosmic.enable = true;
-  #services.desktopManager.cosmic.xwayland.enable = true;
-
   environment.systemPackages = with pkgs; [
     alacritty
   ];
@@ -16,7 +12,8 @@
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.
     enable = true;
-    desktopManager.plasma5.enable = true;
+    #desktopManager.plasma5.enable = true;
+    desktopManager.xfce.enable = true;
 
     # For better performance
     screenSection = ''
@@ -24,9 +21,10 @@
     '';
     enableTearFree = false;
   };
+  services.displayManager.defaultSession = "xfce";
 
   xdg = {
-    # Default browser
+    # Default browsere
     mime.defaultApplications = {
       "text/html" = "firefox.desktop";
       "application/pdf" = "firefox.desktop";
