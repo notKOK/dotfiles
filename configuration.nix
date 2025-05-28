@@ -63,11 +63,6 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
   environment.variables = {
     ROC_ENABLE_PRE_VEGA = "1";
   };
