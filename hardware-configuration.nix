@@ -17,7 +17,10 @@
   boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
-  boot.kernelParams = ["amd_pstate.enable=1"];
+  boot.kernelParams = [
+    "amd_pstate.enable=1"
+    "video=card0-HDMI-A-1:1920x1080@60"
+  ];
   powerManagement.cpuFreqGovernor = "performance";
   xserver.videoDrivers = ["amdgpu"];
 

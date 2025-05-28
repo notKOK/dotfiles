@@ -17,6 +17,12 @@
     # You can disable this if you're only using the Wayland session.
     enable = true;
     desktopManager.plasma5.enable = true;
+
+    # For better performance
+    screenSection = ''
+      Option "EnablePageFlip" "off"
+    '';
+    enableTearFree = false;
   };
 
   xdg = {
