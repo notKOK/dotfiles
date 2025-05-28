@@ -2,6 +2,7 @@
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
+    fira-code
     fira-code-symbols
     nerd-fonts.symbols-only
     meslo-lg
