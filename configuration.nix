@@ -138,6 +138,7 @@
     opera
     mesa
     vulkan-tools
+    geekbench
   ];
 
   programs.mtr.enable = true;
