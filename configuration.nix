@@ -138,8 +138,9 @@
     nvtopPackages.amd
     chromium
     opera
-    mesa
     vulkan-tools
+    noisetorch
+    obsidian
   ];
 
   programs.mtr.enable = true;
