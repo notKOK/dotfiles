@@ -18,6 +18,7 @@
 
       folders = {
         "Cusick-fold" = {
+          id = "mdlwi-8zdfl";
           path = "/home/danila/AddedByMe/Cusick"; # Папка для синхронизации
           devices = ["phone"]; # Устройства, которые должны её синхронизировать
         };
