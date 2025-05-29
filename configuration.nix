@@ -122,7 +122,6 @@
     enpass
     rustdesk
     tmux
-    syncthing
     alejandra
     git
     lazygit
@@ -142,6 +141,7 @@
     obsidian
   ];
 
+  services.syncthing.enable = true;
   programs.noisetorch.enable = true;
   programs.mtr.enable = true;
   programs.gnupg.agent = {
