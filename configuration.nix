@@ -13,6 +13,7 @@
     ./fonts.nix
     ./tmux.nix
     ./rusty.nix
+    ./syncthing.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -139,6 +140,7 @@
     opera
     vulkan-tools
     obsidian
+    syncthing
   ];
 
   services.syncthing.enable = true;
