@@ -139,10 +139,10 @@
     chromium
     opera
     vulkan-tools
-    noisetorch
     obsidian
   ];
 
+  programs.noisetorch.enable = true;
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
