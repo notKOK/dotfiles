@@ -6,7 +6,7 @@
   services.syncthing = {
     enable = true;
     user = "danila";
-    dataDir = "/home/danila/Sync"; # Базовая директория Syncthing
+    dataDir = "/home/danila"; # Базовая директория Syncthing
     #configDir = "/home/your-user/.config/syncthing";  # Где хранится конфигурация
 
     settings = {
